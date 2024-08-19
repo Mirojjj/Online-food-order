@@ -64,8 +64,8 @@ export const checkoutRouter = router({
               },
             },
           ],
-          success_url: `http://localhost:3000/success`,
-          cancel_url: `http://localhost:3000/menu`,
+          success_url: `http://localhost:3000/success` || `https://swadilo.vercel.app/success`,
+          cancel_url: `http://localhost:3000/menu` || `https://swadilo.vercel.app/menu`, 
         })
 
         return {
