@@ -6,7 +6,7 @@ import { api } from 'src/utils/api'
 
 interface successProps {}
 
-const success: FC<successProps> = ({}) => {
+const Success: FC<successProps> = ({}) => {
   const [products, setProducts] = useState<{ id: string; quantity: number }[] | null | false>(null)
 
   // tRPC
@@ -99,4 +99,4 @@ const success: FC<successProps> = ({}) => {
   )
 }
 
-export default success
+export default Success

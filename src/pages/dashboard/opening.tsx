@@ -17,7 +17,7 @@ interface openingProps {
 }   
 
  
-const opening: FunctionComponent<openingProps> = ({days}) => {
+const Opening: FunctionComponent<openingProps> = ({days}) => {
     const [enabled, setEnabled] = useState<boolean>(false)
     const [selectedDate, setSelectedDate] = useState<Date | null>(null)
 
@@ -170,4 +170,4 @@ export async function getServerSideProps(){
     return {props: {days}}
 }
  
-export default opening;
+export default Opening;
