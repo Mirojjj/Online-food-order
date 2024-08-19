@@ -25,7 +25,7 @@ const CalendarComponent: FC<CalendarProps> = ({ days, closedDays }) => {
   if (!today) {
     console.error("No matching day found for today's date.");
   } else{
-console.log("today")
+  console.log("today")
   const rounded = roundToNearestMinutes(now, ORDER_INTERVAL)
   const closing = parse(today!.closeTime, 'kk:mm', now)
   const tooLate = !isBefore(rounded, closing)
@@ -36,6 +36,7 @@ console.log("today")
     justDate: null,
     dateTime: null,
   })
+
 
   useEffect(() => {
     if (date.dateTime) {
@@ -49,23 +50,31 @@ console.log("today")
   return (
     <div className='flex h-screen flex-col items-center justify-center'>
       {date.justDate ? (
+<div className='flex flex-col items-center'>
+<h1 className=' text-violet-700 text-4xl mb-8 font-bold'>Select the time of order</h1>
         <div className='flex max-w-lg flex-wrap gap-4'>
+          <button className='rounded-sm bg-gray-100 p-2' onClick={() => setDate((prev) => ({ ...prev, dateTime: now }))} type='button'>as soon as possible</button>
           {times?.map((time, i) => (
             <div className='rounded-sm bg-gray-100 p-2' key={`time-${i}`}>
               <button onClick={() => setDate((prev) => ({ ...prev, dateTime: time }))} type='button'>
                 {format(time, 'kk:mm')}
+                
               </button>
             </div>
           ))}
         </div>
+        </div>
       ) : (
-        <DynamicCalendar
+        <div className=' flex flex-col items-center'>
+          <h1 className=' text-violet-700 text-4xl mb-8 font-bold'>Select the date of order</h1>
+              <DynamicCalendar
           minDate={now}
           className='REACT-CALENDAR p-2'
           view='month'
           tileDisabled={({ date }) => closedDays.includes(formatISO(date))}
           onClickDay={(date) => setDate((prev) => ({ ...prev, justDate: date }))}
         />
+        </div>
       )}
     </div>
   )

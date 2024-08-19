@@ -2,6 +2,7 @@ import { createTRPCRouter } from "./trpc";
 import { adminRouter } from "./routers/admin";
 import { menuRouter } from "./routers/menu";
 import { openingRouter } from "./routers/openings";
+import { checkoutRouter } from "./routers/checkout";
 
 
 /**
@@ -12,7 +13,8 @@ import { openingRouter } from "./routers/openings";
 export const appRouter = createTRPCRouter({
   admin: adminRouter,
   menu: menuRouter,
-  opening: openingRouter
+  opening: openingRouter,
+  checkout: checkoutRouter
 });
 
 // export type definition of API

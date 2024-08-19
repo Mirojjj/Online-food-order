@@ -4,7 +4,7 @@ import { formatISO } from 'date-fns'
 import { type NextPage } from 'next'
 import Head from 'next/head'
 import { prisma } from '../server/db'
-import Calendar from '@components/calendar'
+import Calendar from '@components/Calendar'
 
 interface HomeProps {
   days: Day[]
