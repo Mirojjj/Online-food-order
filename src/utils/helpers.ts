@@ -17,15 +17,23 @@ export function classNames (...classes: string[]){
 }
 
 export const roundToNearestMinutes = (date: Date, interval: number)=> {
-    const minutesLeftUntilNextInterval = interval - (getMinutes(date) % interval);
-    return addMinutes(date,minutesLeftUntilNextInterval);
+  const minutes = getMinutes(date);
+
+
+  // Calculate the number of minutes to add to reach the next 45-minute mark
+  const minutesToNext45 = (interval - (minutes % interval)) % interval;
+
+  // Add the calculated minutes to the current date
+  const roundedDate = addMinutes(date, minutesToNext45 === 0 ? interval : minutesToNext45);
+
+  return roundedDate;
 }
 
 export const getOpeningTimes = (startDate: Date, dbDays: Day[])=> {
-    const dayOfTheWeek = startDate.getDay()
+    const dayOfWeek = startDate.getDay()
     const isToday = isEqual(startDate, new Date().setHours(0,0,0,0))
 
-    const today = dbDays.find((d)=> d.dayOfWeek === dayOfTheWeek);
+    const today = dbDays.find((d)=> d.dayOfWeek === dayOfWeek);
     if(!today) throw new Error("This day doesnot exist in the database")
 
     const opening = parse(today.openTime, 'kk:mm', startDate)

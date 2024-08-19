@@ -1,6 +1,6 @@
 export const OPENING_HOURS_BEGINNING = 10
 export const OPENING_HOURS_END = 20
-export const ORDER_INTERVAL= 30 
+export const ORDER_INTERVAL= 45 
 
 export const now = new Date()
 

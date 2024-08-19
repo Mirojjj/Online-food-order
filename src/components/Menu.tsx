@@ -7,10 +7,10 @@ import Image from "next/image";
 import { HiArrowLeft } from "react-icons/hi";
 
 interface MenuProps {
-    
+    selectedTime: string,
 }
  
-const Menu: FunctionComponent<MenuProps> = () => {
+const Menu: FunctionComponent<MenuProps> = ({selectedTime}) => {
 
     const [filter, setFilter] = useState<undefined|string>("")
     const {data: menuItem, refetch} = api.menu.getMenuItems.useQuery();

@@ -1,33 +1,37 @@
-"use client"
 
-import { type NextPage } from "next";
+import type { Day } from '@prisma/client'
+import { formatISO } from 'date-fns'
+import { type NextPage } from 'next'
+import Head from 'next/head'
+import { prisma } from '../server/db'
+import Calendar from '@components/calendar'
 
-import Calendar from "../components/calendar"
-
-import { formatISO } from "date-fns";
-import { Day } from "@prisma/client"
-
-
-interface HomeProps{
-  days : Day[],
-  closedDays: string[]
+interface HomeProps {
+  days: Day[]
+  closedDays: string[] // as ISO string
 }
 
-const Home: NextPage<HomeProps> = ({days, closedDays}) => {
-
+const Home: NextPage<HomeProps> = ({ days, closedDays }) => {
   return (
     <>
+      <Head>
+        <title>Booking Software</title>
+        <meta name='description' content='by josh' />
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
+
       <main>
-    <Calendar days={days} closedDays ={closedDays}/>
+        <Calendar days={days} closedDays={closedDays} />
       </main>
     </>
-  );
-};
-export async function getServerSideProps(){
-    const days = await prisma?.day.findMany()
-    const closedDays = (await prisma!.closedDay.findMany()).map(d=>formatISO(d.date))
-    return {props: {days, closedDays}}
+  )
 }
 
+export async function getServerSideProps() {
+  const days = await prisma.day.findMany();
+  console.log(days)
+  const closedDays = (await prisma.closedDay.findMany()).map((d) => formatISO(d.date))
+  return { props: { days, closedDays } }
+}
 
-export default Home;
+export default Home
