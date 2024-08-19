@@ -26,9 +26,6 @@ const initialInput = {
     categories: [],
     img: "",
 }
-
-const handleTextChange = ()=>{}
-
  
 const Menu: FunctionComponent = () => {
     const [input, setInput] = useState<Input>(initialInput)
