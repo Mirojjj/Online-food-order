@@ -1,11 +1,10 @@
 import { FunctionComponent } from "react";
 import Link from "next/link";
 
-interface dashboardProps {
-    
-}
+
+
  
-const dashboard: FunctionComponent<dashboardProps> = () => {
+const dashboard: FunctionComponent = () => {
 
 
     return <>

@@ -4,9 +4,9 @@ import { type FC, useState, useEffect } from 'react'
 import { capitalize } from 'src/utils/helpers'
 import { api } from 'src/utils/api'
 
-interface successProps {}
 
-const Success: FC<successProps> = ({}) => {
+
+const Success: FC= () => {
   const [products, setProducts] = useState<{ id: string; quantity: number }[] | null | false>(null)
 
   // tRPC

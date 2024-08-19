@@ -11,9 +11,7 @@ import { Categories } from "@types";
 
 const DynamicSelect = dynamic(() => import('react-select'), { ssr: false })
 
-interface MenuProps {
-    
-}
+
 
 interface Input {
     name: string
@@ -32,7 +30,7 @@ const initialInput = {
 const handleTextChange = ()=>{}
 
  
-const Menu: FunctionComponent<MenuProps> = () => {
+const Menu: FunctionComponent = () => {
     const [input, setInput] = useState<Input>(initialInput)
     const [preview, setPreview] = useState<string>("")
     const [error, setError] = useState("")
