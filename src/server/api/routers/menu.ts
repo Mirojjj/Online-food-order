@@ -35,7 +35,7 @@ export const menuRouter = createTRPCRouter({
 
     
     checkMenuStatus: publicProcedure.query(async ()=> {
-        await sleep(2000);
+        await sleep(100);
         return true;
     }),
 

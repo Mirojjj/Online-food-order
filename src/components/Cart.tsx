@@ -98,7 +98,7 @@ const Cart: FC<CartProps> = ({ open, setOpen, products, removeFromCart }) => {
                                         <h3>
                                           <p>{item.name}</p>
                                         </h3>
-                                        <p className='ml-4'>${item.price.toFixed(2)}</p>
+                                        <p className='ml-4'>Rs {item.price.toFixed(2)}</p>
                                       </div>
                                       <p className='mt-1 text-sm text-gray-500'>
                                         {item.categories.map((c) => capitalize(c)).join(', ')}
@@ -128,7 +128,7 @@ const Cart: FC<CartProps> = ({ open, setOpen, products, removeFromCart }) => {
                     <div className='border-t border-gray-200 py-6 px-4 sm:px-6'>
                       <div className='flex justify-between text-base font-medium text-gray-900'>
                         <p>Subtotal</p>
-                        <p>${subtotal}</p>
+                        <p>Rs {subtotal}</p>
                       </div>
                       <p className='mt-0.5 text-sm text-gray-500'>
                         Shipping and taxes calculated at checkout.

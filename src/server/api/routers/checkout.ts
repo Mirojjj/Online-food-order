@@ -44,7 +44,7 @@ export const checkoutRouter = router({
           mode: 'payment',
           line_items: productsInCart.map((product) => ({
             price_data: {
-              currency: 'usd',
+              currency: 'inr',
               product_data: {
                 name: product.name,
               },
@@ -58,14 +58,14 @@ export const checkoutRouter = router({
                 type: 'fixed_amount',
                 fixed_amount: {
                   amount: 0,
-                  currency: 'usd',
+                  currency: 'inr',
                 },
                 display_name: 'Pickup in store',
               },
             },
           ],
-          success_url: `http://localhost:3000/success` || `https://swadilo.vercel.app/success`,
-          cancel_url: `http://localhost:3000/menu` || `https://swadilo.vercel.app/menu`, 
+          success_url:  `https://swadilo.vercel.app/success`,
+          cancel_url:  `https://swadilo.vercel.app/menu`, 
         })
 
         return {

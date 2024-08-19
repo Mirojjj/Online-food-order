@@ -46,8 +46,8 @@ const Menu: FC<MenuProps> = ({ selectedTime, addToCart }) => {
         <div className='mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8'>
           {filteredMenuItems?.map((menuItem) => (
             <div key={menuItem.id} className='group relative'>
-              <div className='min-h-80 aspect-w-1 aspect-h-1 lg:aspect-none w-full overflow-hidden rounded-md bg-gray-200 hover:opacity-75 lg:h-80'>
-                <div className='relative h-full w-full object-cover object-center lg:h-full lg:w-full'>
+              <div className='min-h-80 aspect-w-1 aspect-h-1 lg:aspect-none w-full overflow-hidden rounded-md bg-gray-200 hover:opacity-75 xs:h-80'>
+                <div className='relative h-full w-full object-cover object-center lg:h-full xs:w-full'>
                   <Image src={menuItem.imageKey} alt={menuItem.name} fill style={{ objectFit: 'cover' }} />
                 </div>
               </div>
@@ -60,7 +60,7 @@ const Menu: FC<MenuProps> = ({ selectedTime, addToCart }) => {
                     {menuItem.categories.map((c) => capitalize(c)).join(', ')}
                   </p>
                 </div>
-                <p className='text-sm font-medium text-gray-900'>${menuItem.price.toFixed(2)}</p>
+                <p className='text-sm font-medium text-gray-900'>Rs {menuItem.price.toFixed(2)}</p>
               </div>
 
               <Button
